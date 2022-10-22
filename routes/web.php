@@ -13,6 +13,37 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+//landing page
 Route::get('/', function () {
+    return view('welcome');
+});
+
+//single listing
+Route::get('/listing/{slug}/{id}', function () {
+    return view('welcome');
+});
+
+//show all listings
+Route::get('/{property_type}/{listing_type}/', function () {
+    return view('welcome');
+});
+
+//user login
+Route::get('/login', function () {
+    return view('welcome');
+});
+
+//user register
+Route::get('/register', function () {
+    return view('welcome');
+});
+
+// user saved listings
+Route::get('/account/saved', function () {
+    return view('welcome');
+});
+
+// user showing status
+Route::get('/account/show-status', function () {
     return view('welcome');
 });
