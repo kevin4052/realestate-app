@@ -16,21 +16,23 @@
     </head>
     <body>
         <header class="header">
-            <div class="header__logo">Hernandez Realty</div>
+            <div class="container">
+                <div class="header__logo">Hernandez Realty</div>
 
-            <div class="header__menu">
-                <a href="#" class="header__menu-link--active">Home</a>
-                <a href="#" class="header__menu-link">Listing</a>
-                <a href="#" class="header__menu-link">Property</a>
-                <a href="#" class="header__menu-link">Pages</a>
-            </div>
-
-            <div class="header__account">
-                <div class="header__account-link">
-                    <i class="fa-solid fa-user"></i>
+                <div class="header__menu">
+                    <a href="#" class="header__menu-link--active">Home</a>
+                    <a href="#" class="header__menu-link">Listing</a>
+                    <a href="#" class="header__menu-link">Property</a>
+                    <a href="#" class="header__menu-link">Pages</a>
                 </div>
-                <div class="header__account-link">
-                    <i class="fa-solid fa-heart"></i>
+
+                <div class="header__account">
+                    <div class="header__account-link">
+                        <i class="fa-solid fa-user"></i>
+                    </div>
+                    <div class="header__account-link">
+                        <i class="fa-solid fa-heart"></i>
+                    </div>
                 </div>
             </div>
         </header>
