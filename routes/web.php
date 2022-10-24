@@ -18,13 +18,13 @@ Route::get('/', function () {
     return view('pages.home');
 });
 
-//single listing
-Route::get('/listing/{slug}/{id}', function () {
-    return view('welcome');
+//show all listings
+Route::get('/{property_type}/{listing_type}/{city}', function () {
+    return view('pages.listings');
 });
 
-//show all listings
-Route::get('/{property_type}/{listing_type}/', function () {
+//single listing
+Route::get('/listing/{slug}/{id}', function () {
     return view('welcome');
 });
 
