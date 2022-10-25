@@ -40,7 +40,7 @@ Route::get('/register', function () {
 
 // user saved listings
 Route::get('/account/saved', function () {
-    return view('welcome');
+    return view('pages.saved-listings');
 });
 
 // user showing status

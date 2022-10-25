@@ -20,8 +20,8 @@
                 <div class="header__logo">Hernandez Realty</div>
 
                 <div class="header__menu">
-                    <a href="#" class="header__menu-link--active">Home</a>
-                    <a href="#" class="header__menu-link">Listing</a>
+                    <a href="/" class="header__menu-link--active">Home</a>
+                    <a href="/home/for-sale/miami" class="header__menu-link">Listing</a>
                     <a href="#" class="header__menu-link">Property</a>
                     <a href="#" class="header__menu-link">Pages</a>
                 </div>
@@ -31,7 +31,9 @@
                         <i class="fa-solid fa-user"></i>
                     </div>
                     <div class="header__account-link">
-                        <i class="fa-solid fa-heart"></i>
+                        <a href="/account/saved">
+                            <i class="fa-solid fa-heart"></i>
+                        </a>
                     </div>
                 </div>
             </div>
