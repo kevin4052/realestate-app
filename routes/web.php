@@ -45,5 +45,5 @@ Route::get('/account/saved', function () {
 
 // user showing status
 Route::get('/account/show-status', function () {
-    return view('welcome');
+    return view('pages.show-status');
 });

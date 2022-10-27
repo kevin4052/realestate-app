@@ -1,6 +1,7 @@
 @extends('layouts.main')
 
 
+@section('page-title', 'All Properties - Hernandez Realty')
 @section('content')
 
 <div class="listings-page">
