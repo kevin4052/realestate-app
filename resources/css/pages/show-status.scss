@@ -1,4 +1,51 @@
 .account-layout {
     .request-list {
+        h2 {
+            font-weight: 700;
+            margin-bottom: 2rem;
+        }
+        &__wrapper {
+            position: relative;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: #000 0px 7px 52px -24px;
+            margin-bottom: 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        &__info {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        &__details {
+            font-size: 1.1rem;
+            color: #676a80;
+            margin-bottom: 0.5rem;
+        }
+
+        &__info-title {
+            font-weight: 700;
+        }
+
+        &__info-status {
+            padding: 10px 15px;
+            font-weight: 700;
+
+            &--success {
+                background: greenyellow;
+            }
+            &--canceled {
+                background: orange;
+            }
+            &--sold {
+                background: red;
+                color: white;
+            }
+        }
     }
 }
