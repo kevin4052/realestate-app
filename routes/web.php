@@ -30,12 +30,12 @@ Route::get('/listing/{slug}/{id}', function () {
 
 //user login
 Route::get('/login', function () {
-    return view('welcome');
+    return view('pages.login');
 });
 
 //user register
 Route::get('/register', function () {
-    return view('welcome');
+    return view('pages.register');
 });
 
 // user saved listings
