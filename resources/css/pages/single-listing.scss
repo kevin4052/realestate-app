@@ -1,6 +1,7 @@
 .single-listing-page {
     .listing-top {
         position: relative;
+        height: 600px;
         &__img {
             position: absolute;
             z-index: 1;
@@ -79,6 +80,84 @@
             &:hover {
                 background: #db691d;
                 color: white;
+            }
+        }
+    }
+
+    .listing-info {
+        padding: 50px 0;
+
+        h1 {
+            font-size: 1.9rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            margin-bottom: 2rem;
+        }
+
+        &__details {
+            display: flex;
+            justify-content: space-between;
+            max-width: 260px;
+        }
+
+        &__details-text {
+            font-size: 1.2rem;
+            color: #676a80;
+            margin-bottom: 0.5rem;
+        }
+
+        &__agent-title {
+            display: block;
+            font-size: 0.9rem;
+            font-weight: 700;
+        }
+
+        &__agent-name {
+            display: block;
+            font-size: 1.9rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            margin-bottom: 1rem;
+        }
+    }
+
+    .listing-extras {
+        &__details {
+            h2 {
+                font-size: 1.7rem;
+                font-weight: 700;
+                margin-bottom: 2rem;
+            }
+
+            h3 {
+                font-size: 1.5rem;
+                font-weight: 700;
+                margin-bottom: 2rem;
+            }
+
+            p {
+                line-height: 2;
+                margin-bottom: 2rem;
+            }
+
+            ul {
+                list-style: disc;
+                li {
+                    margin-bottom: 1rem;
+                }
+            }
+        }
+
+        &__gallery {
+            h2 {
+                font-size: 1.7rem;
+                font-weight: 700;
+                margin-bottom: 2rem;
+            }
+
+            img {
+                width: 100%;
+                margin-bottom: 10px;
             }
         }
     }

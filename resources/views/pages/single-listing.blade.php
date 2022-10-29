@@ -44,6 +44,69 @@
             </div>
         </div>
     </div>
+    <section class="listing-info">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-7">
+                    <h1>123 Street</br> Miami, FL 12345</h1>
+                    <div class="listing-info__details">
+                        <span class="listing-info__details-text"><i class="fa-solid fa-bed"></i> 4 </span>
+                        <span class="listing-info__details-text"><i class="fa-solid fa-bath"></i> 4 </span>
+                        <span class="listing-info__details-text"><i class="fa-solid fa-ruler"></i> 4,000 SQFT</span>
+                    </div>
+                </div>
+                <div class="col-md-5">
+                    <span class="listing-info__agent-title">Agent</span>
+                    <span class="listing-info__agent-name">John Smith</span>
+                    <p class="listing-info__agent-profile">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Tempore ea ullam dolor architecto voluptatem inventore laudantium reiciendis mollitia ut reprehenderit cum hic, ratione, nam enim sed quae distinctio illo totam.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="listing-extras">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-7">
+                    <div class="listing-extras__details">
+                        <h2>More Info</h2>
+                        <p>
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi quisquam numquam vel 
+                            explicabo adipisci eveniet iusto culpa blanditiis, perferendis exercitationem 
+                            eligendi laboriosam atque cupiditate non officia ea fugit consequatur saepe.
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi quisquam numquam vel 
+                            explicabo adipisci eveniet iusto culpa blanditiis, perferendis exercitationem 
+                            eligendi laboriosam atque cupiditate non officia ea fugit consequatur saepe.
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi quisquam numquam vel 
+                            explicabo adipisci eveniet iusto culpa blanditiis, perferendis exercitationem 
+                            eligendi laboriosam atque cupiditate non officia ea fugit consequatur saepe.
+                        </p>
+                        <h3>Details</h3>
+                        <ul>
+                            <li>Test</li>
+                            <li>test</li>
+                            <li>test</li>
+                            <li>test</li>
+                            <li>test</li>
+                            <li>test</li>
+                            <li>test</li>
+                            <li>test</li>
+                            <li>test</li>
+                            <li>test</li>
+                            <li>test</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md-5">
+                    <div class="listing-extras__gallery">
+                        <h2>Images</h2>
+                        @for ($i = 0; $i < 3; $i++)
+                        <img src="https://image.cnbcfm.com/api/v1/image/105722431-1549456372715indian2.jpg?v=1549456442" alt="">
+                        @endfor
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 </div>
 
 @endsection
