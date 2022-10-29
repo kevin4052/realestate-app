@@ -6,7 +6,7 @@
 
 <div class="listings-page">
     <div class="listing-city">
-        <img class="listings-city__img" src="https://www.architectureartdesigns.com/wp-content/uploads/2019/01/modern-box-home-design.jpg" alt="">
+        <img class="listings-city__img" src="https://image.cnbcfm.com/api/v1/image/105722431-1549456372715indian2.jpg?v=1549456442" alt="">
         <h1 class="listings-city__title">Miami</h1>
     </div>
     <div class="listings-filter">
@@ -24,8 +24,8 @@
             <div class="row">
                 @for ($i = 0; $i < 10; $i++)
                 <div class="col-md-6 col-lg-4 col-xl-3">
-                    <div class="listings-properties__item">
-                        <img class="" src="https://www.architectureartdesigns.com/wp-content/uploads/2019/01/modern-box-home-design.jpg" alt="listing image">
+                    <a class="listings-properties__item" href="/listing/123-Street-Miami-FL-12345/1">
+                        <img class="" src="https://image.cnbcfm.com/api/v1/image/105722431-1549456372715indian2.jpg?v=1549456442" alt="listing image">
                         <div class="listings-properties__item-saved">
                             <i class="fa-solid fa-heart"></i>
                         </div>
@@ -40,7 +40,7 @@
                             <div class="listings-properties__item-line"></div>
                             <span class="listings-properties__item-owner">Kevin Hernandez</span>
                         </div>
-                    </div>        
+                    </a>        
                 </div>
                 @endfor
             </div>

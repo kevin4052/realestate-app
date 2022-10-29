@@ -18,16 +18,6 @@ Route::get('/', function () {
     return view('pages.home');
 });
 
-//show all listings
-Route::get('/{property_type}/{listing_type}/{city}', function () {
-    return view('pages.listings');
-});
-
-//single listing
-Route::get('/listing/{slug}/{id}', function () {
-    return view('welcome');
-});
-
 //user login
 Route::get('/login', function () {
     return view('pages.login');
@@ -46,4 +36,14 @@ Route::get('/account/saved', function () {
 // user showing status
 Route::get('/account/show-status', function () {
     return view('pages.show-status');
+});
+
+//single listing
+Route::get('/listing/{slug}/{id}', function () {
+    return view('pages.single-listing');
+});
+
+//show all listings
+Route::get('/{property_type}/{listing_type}/{city}', function () {
+    return view('pages.listings');
 });

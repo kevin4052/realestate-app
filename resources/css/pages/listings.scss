@@ -76,6 +76,14 @@
             position: relative;
             box-shadow: #000 0px 0px 100px -62px;
             margin-bottom: 2rem;
+            display: block;
+            border-radius: 15px;
+            text-decoration: none;
+            color: rgba(0, 0, 0, 0.8);
+            transition: all 0.3s ease-in-out;
+            &:hover {
+                color: #db691d;
+            }
         }
 
         &__item-saved {

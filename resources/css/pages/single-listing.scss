@@ -1,0 +1,85 @@
+.single-listing-page {
+    .listing-top {
+        position: relative;
+        &__img {
+            position: absolute;
+            z-index: 1;
+            width: 100%;
+            height: 600px;
+            object-fit: cover;
+            object-position: center;
+        }
+
+        &__form-wrapper {
+            position: absolute;
+            z-index: 2;
+            width: 100%;
+            height: 600px;
+
+            .container {
+                display: flex;
+                justify-content: flex-end;
+                align-items: center;
+                height: 600px;
+            }
+        }
+
+        &__form {
+            background: white;
+            width: 300px;
+            border-radius: 15px;
+            box-shadow: #000 0px 0px 100px -62px;
+            padding: 20px;
+        }
+
+        &__form-label {
+            display: block;
+            font-size: 1rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        &__form-group {
+            margin-bottom: 0.5rem;
+            &--horz {
+                display: flex;
+                .listing-top__form-option {
+                    width: 100%;
+                }
+            }
+        }
+
+        &__form-option,
+        &__form-button {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 0 15px;
+            height: 40px;
+            width: 100%;
+            border: 1px solid #c0c5cf;
+            border-radius: 5px;
+            margin-right: 0.5rem;
+            transition: all 0.3s ease-in-out;
+            font-weight: 600;
+
+            &:nth-last-child(1) {
+                margin-right: 0;
+            }
+            &:hover {
+                background: #c0c5cf;
+                cursor: pointer;
+            }
+        }
+
+        &__form-button {
+            margin-right: 0;
+            background: #db691d;
+            color: white;
+            &:hover {
+                background: #db691d;
+                color: white;
+            }
+        }
+    }
+}

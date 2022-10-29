@@ -4,7 +4,7 @@
     <div class="hero__images">
         <div class="hero__image">
             <img
-                src="https://images.dwell.com/photos-6311371353569939456/6739650785763569664-large/modern-architectural-style-with-warm-finishes-to-compliment-mountain-setting.jpg"
+                src="https://image.cnbcfm.com/api/v1/image/105722431-1549456372715indian2.jpg?v=1549456442"
                 class="hero__image-img"/>
             <div class="hero__info">
                 <span class="hero__subtitle"> Residential </span>
