@@ -10,3 +10,9 @@
 @use "./pages/show-status.scss";
 @use "./pages/auth.scss";
 @use "./pages/single-listing.scss";
+
+.error-sub-text {
+    color: red;
+    font-size: 0.8rem;
+    padding: 10px 0;
+}

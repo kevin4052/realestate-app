@@ -13,18 +13,23 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-//landing page
 Route::get('/', function () {
+    return view('welcome');
+});
+
+
+//landing page
+Route::get('/home', function () {
     return view('pages.home');
 });
 
 //user login
-Route::get('/login', function () {
+Route::get('/home/login', function () {
     return view('pages.login');
 });
 
 //user register
-Route::get('/register', function () {
+Route::get('/home/register', function () {
     return view('pages.register');
 });
 
@@ -47,3 +52,11 @@ Route::get('/listing/{slug}/{id}', function () {
 Route::get('/{property_type}/{listing_type}/{city}', function () {
     return view('pages.listings');
 });
+
+Route::get('/dashboard', function () {
+    return view('dashboard');
+})->middleware(['auth', 'verified'])->name('dashboard');
+
+require __DIR__.'/auth.php';
+
+
