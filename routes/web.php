@@ -14,34 +14,18 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
-});
-
-
-//landing page
-Route::get('/home', function () {
     return view('pages.home');
 });
 
-//user login
-Route::get('/home/login', function () {
-    return view('pages.login');
-});
-
-//user register
-Route::get('/home/register', function () {
-    return view('pages.register');
-});
-
 // user saved listings
-Route::get('/account/saved', function () {
+Route::get('/account', function () {
     return view('pages.saved-listings');
-});
+})->name('account');
 
 // user showing status
 Route::get('/account/show-status', function () {
     return view('pages.show-status');
-});
+})->name('show-status');
 
 //single listing
 Route::get('/listing/{slug}/{id}', function () {
@@ -51,11 +35,11 @@ Route::get('/listing/{slug}/{id}', function () {
 //show all listings
 Route::get('/{property_type}/{listing_type}/{city}', function () {
     return view('pages.listings');
-});
+})->name('listings');
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+// Route::get('/dashboard', function () {
+//     return view('dashboard');
+// })->middleware(['auth', 'verified'])->name('dashboard');
 
 require __DIR__.'/auth.php';
 
