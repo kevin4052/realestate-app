@@ -71,7 +71,7 @@
         <div>
             <!-- #Left Sidebar ==================== -->
             <div class="sidebar">
-                <div class="sidebar-inner">
+                <div class="sidebar-inner" style="background: #0b0b13">
                     <!-- ### $Sidebar Header ### -->
                     <div class="sidebar-logo">
                         <div class="peers ai-c fxw-nw">
@@ -81,14 +81,14 @@
                                         <div class="peer">
                                             <div class="logo">
                                                 <img
-                                                    src="assets/static/images/logo.png"
+                                                    src="/dash/assets/static/images/logo.png"
                                                     alt=""
                                                 />
                                             </div>
                                         </div>
                                         <div class="peer peer-greed">
-                                            <h5 class="lh-1 mB-0 logo-text">
-                                                Adminator
+                                            <h5 class="lh-1 mB-0 logo-text" style="color: red">
+                                                Hernandez Realty
                                             </h5>
                                         </div>
                                     </div></a
