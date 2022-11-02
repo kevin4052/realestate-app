@@ -37,8 +37,18 @@ class ListingController extends Controller
      */
     public function store(Request $request)
     {
-        $listing = new Listing;
- 
+
+        request()->validate([
+            'address' => 'required',
+            'address2' => 'required',
+            'city' => 'required',
+            'zipcode' => 'required|integer',
+            'bedrooms' => 'required|integer',
+            'bathrooms' => 'required|integer',
+            'squarefootage' => 'required|integer',
+        ]);
+
+        $listing = new Listing; 
         $listing->address = $request->get('address');
         $listing->address2 = $request->get('address2');
         $listing->city = $request->get('city');
@@ -48,10 +58,11 @@ class ListingController extends Controller
         $listing->bathrooms = $request->get('bathrooms');
         $listing->squarefootage = $request->get('squarefootage');
         $listing->description = $request->get('description');
-        $listing->slug = Helper::slugify("{$request->address}-{$request->address2}-{$request->city}-{$request->state}");
- 
+        $listing->slug = Helper::slugify("{$request->address}-{$request->address2}-{$request->city}-{$request->state}"); 
         $listing->save();
-        return "success";
+
+        session()->flash('success', 'Created new listing!');
+        return redirect("/admin/listings/{$listing->slug}/{$listing->id}/edit");
     }
 
     /**
