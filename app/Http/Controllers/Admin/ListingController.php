@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Listing;
 use App\Helper\Helper;
+use Illuminate\Support\Facades\DB;
 
 class ListingController extends Controller
 {
@@ -16,7 +17,11 @@ class ListingController extends Controller
      */
     public function index()
     {
-        return view('admin.listings.index');
+        $listings = Listing::paginate(5);
+        // return $listings;
+        return view('admin.listings.index', [
+            'listings' => $listings
+        ]);
     }
 
     /**
@@ -82,9 +87,15 @@ class ListingController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit($slug, $id)
     {
-        return view('admin.listings.edit');
+        $listing = Listing::where([
+            'id' => $id,
+            'slug' => $slug
+        ])->first();
+
+        // dd($listing->address);
+        return view('admin.listings.edit', ["listing" => $listing]);
     }
 
     /**
@@ -94,9 +105,36 @@ class ListingController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, $slug, $id)
     {
-        //
+        request()->validate([
+            'address' => 'required',
+            'address2' => 'required',
+            'city' => 'required',
+            'zipcode' => 'required|integer',
+            'bedrooms' => 'required|integer',
+            'bathrooms' => 'required|integer',
+            'squarefootage' => 'required|integer',
+        ]);
+
+        $listing = Listing::where([
+            'id' => $id,
+            'slug' => $slug
+        ])->first();
+        $listing->address = $request->get('address');
+        $listing->address2 = $request->get('address2');
+        $listing->city = $request->get('city');
+        $listing->state = $request->get('state');
+        $listing->zipcode = $request->get('zipcode');
+        $listing->bedrooms = $request->get('bedrooms');
+        $listing->bathrooms = $request->get('bathrooms');
+        $listing->squarefootage = $request->get('squarefootage');
+        $listing->description = $request->get('description');
+        $listing->slug = Helper::slugify("{$request->address}-{$request->address2}-{$request->city}-{$request->state}"); 
+        $listing->save();
+
+        session()->flash('success', 'Listing has been updated!');
+        return redirect("/admin/listings/{$listing->slug}/{$listing->id}/edit");
     }
 
     /**
@@ -105,8 +143,12 @@ class ListingController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy($slug, $id)
     {
-        //
+        $listing = Listing::find($id);
+        $listing->delete();
+
+        session()->flash('success', 'Listing has been deleted');
+        return redirect("/admin/listings");
     }
 }

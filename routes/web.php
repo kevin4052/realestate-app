@@ -35,6 +35,10 @@ Route::group([
         Route::post('/', [\App\Http\Controllers\Admin\ListingController::class, 'store'])->name('store');
         // edit listing
         Route::get('/{slug}/{id}/edit', [\App\Http\Controllers\Admin\ListingController::class, 'edit'])->name('edit');
+        // update listing
+        Route::put('/{slug}/{id}', [\App\Http\Controllers\Admin\ListingController::class, 'update'])->name('update');
+        // delete listing
+        Route::get('/{slug}/{id}/delete', [\App\Http\Controllers\Admin\ListingController::class, 'destroy'])->name('delete');
     });
 
 });

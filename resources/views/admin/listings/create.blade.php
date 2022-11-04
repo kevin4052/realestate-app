@@ -3,7 +3,7 @@
 @section('page-title', 'create listing')
 @section('content')
 <div id="maincontent">
-    <div class="col-md-6">
+    <div class="col-md-8">
         <div class="bgc-white p-20 bd">
             <h1 class="c-grey-900">Create Listing</h1>
             <div class="mT-30">
