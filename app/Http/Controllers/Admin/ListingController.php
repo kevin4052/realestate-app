@@ -20,7 +20,6 @@ class ListingController extends Controller
     public function index()
     {
         $listings = Listing::paginate(5);
-        // return $listings;
         return view('admin.listings.index', [
             'listings' => $listings
         ]);

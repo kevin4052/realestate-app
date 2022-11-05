@@ -16,7 +16,8 @@ use Illuminate\Support\Facades\Route;
 // admin group
 Route::group([
     'prefix' => 'admin',
-    'as' => 'admin.'
+    'as' => 'admin.',
+    'middleware' => ['auth', 'is_admin']
 ], function () {
     // admin dashboard
     Route::get('/', function () {
