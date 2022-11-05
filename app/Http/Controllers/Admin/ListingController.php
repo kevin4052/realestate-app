@@ -6,6 +6,8 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Listing;
 use App\Helper\Helper;
+use App\Models\User;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
 class ListingController extends Controller
@@ -53,7 +55,8 @@ class ListingController extends Controller
             'squarefootage' => 'required|integer',
         ]);
 
-        $listing = new Listing; 
+        $listing = new Listing;
+        $listing->user_id = Auth()->user()->id;
         $listing->address = $request->get('address');
         $listing->address2 = $request->get('address2');
         $listing->city = $request->get('city');
