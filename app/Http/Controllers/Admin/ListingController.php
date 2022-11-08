@@ -19,7 +19,7 @@ class ListingController extends Controller
      */
     public function index()
     {
-        $listings = Listing::paginate(5);
+        $listings = Listing::where('user_id', auth()->user()->id)->paginate(5);
         return view('admin.listings.index', [
             'listings' => $listings
         ]);
@@ -32,6 +32,7 @@ class ListingController extends Controller
      */
     public function create()
     {
+        $this->authorize('create', Listing::class);
         return view('admin.listings.create');
     }
 
@@ -43,6 +44,7 @@ class ListingController extends Controller
      */
     public function store(Request $request)
     {
+        $this->authorize('create', Listing::class);
 
         request()->validate([
             'address' => 'required',
@@ -55,7 +57,7 @@ class ListingController extends Controller
         ]);
 
         $listing = new Listing;
-        $listing->user_id = Auth()->user()->id;
+        $listing->user_id = auth()->user()->id;
         $listing->address = $request->get('address');
         $listing->address2 = $request->get('address2');
         $listing->city = $request->get('city');
@@ -91,10 +93,13 @@ class ListingController extends Controller
      */
     public function edit($slug, $id)
     {
+        
         $listing = Listing::where([
             'id' => $id,
             'slug' => $slug
         ])->first();
+            
+        $this->authorize('update', $listing);
 
         // dd($listing->address);
         return view('admin.listings.edit', ["listing" => $listing]);
@@ -123,6 +128,9 @@ class ListingController extends Controller
             'id' => $id,
             'slug' => $slug
         ])->first();
+
+        $this->authorize('update', $listing);
+
         $listing->address = $request->get('address');
         $listing->address2 = $request->get('address2');
         $listing->city = $request->get('city');
@@ -148,6 +156,7 @@ class ListingController extends Controller
     public function destroy($slug, $id)
     {
         $listing = Listing::find($id);
+        $this->authorize('delete', $listing);
         $listing->delete();
 
         session()->flash('success', 'Listing has been deleted');

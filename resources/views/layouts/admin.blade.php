@@ -275,10 +275,7 @@
                                                         class="peer peer-greed"
                                                     >
                                                         <span
-                                                            ><span
-                                                                class="fw-500"
-                                                                >John Doe</span
-                                                            >
+                                                            ><span class="fw-500" >{{auth()->user()->name}}</span>
                                                             <span
                                                                 class="c-grey-600"
                                                                 >liked your
@@ -431,11 +428,7 @@
                                                                 <div
                                                                     class="peer"
                                                                 >
-                                                                    <p
-                                                                        class="fw-500 mB-0"
-                                                                    >
-                                                                        John Doe
-                                                                    </p>
+                                                                    <p class="fw-500 mB-0">{{auth()->user()->name}}</p>
                                                                 </div>
                                                                 <div
                                                                     class="peer"
@@ -588,9 +581,7 @@
                                         />
                                     </div>
                                     <div class="peer">
-                                        <span class="fsz-sm c-grey-900"
-                                            >John Doe</span
-                                        >
+                                        <span class="fsz-sm c-grey-900">{{auth()->user()->name}}</span>
                                     </div></a
                                 >
                                 <ul class="dropdown-menu fsz-sm">
