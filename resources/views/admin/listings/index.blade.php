@@ -20,11 +20,18 @@
                         <tr>
                             <th scope="row">{{$listing->id}}</th>
                             <td>
-                                <a href="{{route('admin.listings.edit', ['slug' => $listing->slug, 'id' => $listing->id])}}">
-                                    {{$listing->address}} {{$listing->address2}}<br> {{$listing->city}}, {{$listing->state}} {{$listing->zipcode}}
-                                </a>                                
+                                <a
+                                    href="{{route('admin.listings.edit', ['slug' => $listing->slug, 'id' => $listing->id])}}">
+                                    {{$listing->address}} {{$listing->address2}}<br> {{$listing->city}},
+                                    {{$listing->state}} {{$listing->zipcode}}
+                                </a>
                             </td>
-                            <td>Active</td>
+                            <td>
+                                <div class="btn cur-p btn-{{$listing->status == 'draft' ? 'warning' : 'success'}}"
+                                    style="width: 100px; text-transform: capitalize">
+                                    {{$listing->status}}
+                                </div>
+                            </td>
                         </tr>
                         @endforeach
                     </tbody>

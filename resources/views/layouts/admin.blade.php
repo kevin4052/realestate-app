@@ -113,15 +113,6 @@
                             >
                         </li>
                         <li class="nav-item dropdown">
-                            <a class="sidebar-link" href="ui.html"
-                                ><span class="icon-holder"
-                                    ><i
-                                        class="c-pink-500 ti-palette"
-                                    ></i> </span
-                                ><span class="title">UI Elements</span></a
-                            >
-                        </li>
-                        <li class="nav-item dropdown">
                             <a
                                 class="dropdown-toggle"
                                 href="javascript:void(0);"
@@ -154,47 +145,6 @@
                                         href="datatable.html"
                                         >Listing Tour Requests</a
                                     >
-                                </li>
-                            </ul>
-                        </li>
-                        <li class="nav-item dropdown">
-                            <a
-                                class="dropdown-toggle"
-                                href="javascript:void(0);"
-                                ><span class="icon-holder"
-                                    ><i
-                                        class="c-teal-500 ti-view-list-alt"
-                                    ></i> </span
-                                ><span class="title">Multiple Levels</span>
-                                <span class="arrow"
-                                    ><i class="ti-angle-right"></i></span
-                            ></a>
-                            <ul class="dropdown-menu">
-                                <li class="nav-item dropdown">
-                                    <a href="javascript:void(0);"
-                                        ><span>Menu Item</span></a
-                                    >
-                                </li>
-                                <li class="nav-item dropdown">
-                                    <a href="javascript:void(0);"
-                                        ><span>Menu Item</span>
-                                        <span class="arrow"
-                                            ><i
-                                                class="ti-angle-right"
-                                            ></i></span
-                                    ></a>
-                                    <ul class="dropdown-menu">
-                                        <li>
-                                            <a href="javascript:void(0);"
-                                                >Menu Item</a
-                                            >
-                                        </li>
-                                        <li>
-                                            <a href="javascript:void(0);"
-                                                >Menu Item</a
-                                            >
-                                        </li>
-                                    </ul>
                                 </li>
                             </ul>
                         </li>
