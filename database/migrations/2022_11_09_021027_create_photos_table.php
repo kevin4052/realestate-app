@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('name');
             $table->integer('size')->unsigned();
             $table->integer('user_id')->unsigned();
+            $table->integer('listing_id')->unsigned();
             $table->timestamps();
         });
     }

@@ -28,18 +28,29 @@ Route::group([
         'prefix' => 'listings',
         'as' => 'listings.'
     ], function () {
-        // show all listings
+        // listings
         Route::get('/', [\App\Http\Controllers\Admin\ListingController::class, 'index'])->name('index');
-        // create new listing
         Route::get('/create', [\App\Http\Controllers\Admin\ListingController::class, 'create'])->name('create');
-        // store listing
         Route::post('/', [\App\Http\Controllers\Admin\ListingController::class, 'store'])->name('store');
-        // edit listing
         Route::get('/{slug}/{id}/edit', [\App\Http\Controllers\Admin\ListingController::class, 'edit'])->name('edit');
-        // update listing
         Route::put('/{slug}/{id}', [\App\Http\Controllers\Admin\ListingController::class, 'update'])->name('update');
-        // delete listing
         Route::get('/{slug}/{id}/delete', [\App\Http\Controllers\Admin\ListingController::class, 'destroy'])->name('delete');
+
+        // photos
+        Route::get('/{slug}/{id}/photos', [\App\Http\Controllers\Admin\PhotoController::class, 'index'])->name('photos.index');
+        Route::get('/{slug}/{id}/photos/create', [\App\Http\Controllers\Admin\PhotoController::class, 'create'])->name('photos.create');
+        Route::post('/{slug}/{id}/photos', [\App\Http\Controllers\Admin\PhotoController::class, 'store'])->name('photos.store');
+        Route::get('/{slug}/{id}/photos/{photo_id}/edit', [\App\Http\Controllers\Admin\PhotoController::class, 'edit'])->name('photos.edit');
+        Route::put('/{slug}/{id}/photos', [\App\Http\Controllers\Admin\PhotoController::class, 'update'])->name('photos.update');
+        Route::get('/{slug}/{id}/photos/{photo_id}/delete', [\App\Http\Controllers\Admin\PhotoController::class, 'destroy'])->name('photos.delete');
+
+        // Route::group([
+        //     'prefix' => 'photos',
+        //     'as' => 'photos.'
+        // ], function () {            
+        // });
+
+
     });
 
 });
@@ -67,12 +78,6 @@ Route::get('/listing/{slug}/{id}', function () {
 Route::get('/{property_type}/{listing_type}/{city}', function () {
     return view('pages.listings');
 })->name('listings');
-
-
-
-// Route::get('/dashboard', function () {
-//     return view('dashboard');
-// })->middleware(['auth', 'verified'])->name('dashboard');
 
 require __DIR__.'/auth.php';
 

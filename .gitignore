@@ -3,6 +3,7 @@
 /public/dash
 /public/hot
 /public/storage
+/public/img
 /storage/*.key
 /vendor
 .env
