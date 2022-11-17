@@ -28,7 +28,9 @@ class PhotoController extends Controller
         }
 
         return view('admin.listings.photos.index', [
-            'photos' => $photos
+            'photos' => $photos,
+            'slug' => $slug,
+            'id' => $id
         ]);
     }
 
@@ -69,6 +71,7 @@ class PhotoController extends Controller
         $photo->listing_id = $id;
         $photo->size = $size;
         $photo->name = $name;
+        $photo->featured = 0;
         $photo->save();
 
         session()->flash('success', 'Photo was Saved!');
@@ -117,6 +120,35 @@ class PhotoController extends Controller
      */
     public function destroy($slug, $id, $photo_id)
     {
-        //
+        $photo = Photo::find($photo_id);
+        // $this->authorize('delete', $photo);
+        $photo->delete();
+
+        session()->flash('success', 'Photo was deleted');
+        return redirect("/admin/listings/{$slug}/{$id}/photos");
+    }
+
+    public function featured($slug, $id, $photo_id)
+    {
+        $old_photo = Photo::where([
+            'listing_id' => $id,
+            'featured' => 1,
+            ])->first();
+        if ($old_photo != null) {
+            $old_photo->featured = 0;
+            $old_photo->save();
+        }
+
+        $new_photo = Photo::where([
+            'listing_id' => $id,
+            'id' => $photo_id,
+            ])->first();
+        $new_photo->featured = 1;
+        $new_photo->save();
+
+        // $this->authorize('delete', $photo);
+
+        session()->flash('success', 'Photo was set to featured');
+        return redirect("/admin/listings/{$slug}/{$id}/photos");
     }
 }

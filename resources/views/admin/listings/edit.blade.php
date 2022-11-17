@@ -135,10 +135,10 @@
                             @enderror
                         </div>
                         <div class="form-group" style="display: flex; margin-top: 1rem; flex-direction:column">
-                            <a href="{{ route('admin.listings.delete', ['slug' => $listing->slug, 'id' => $listing->id]) }}"
+                            <a href="{{ route('admin.listings.photos.index', ['slug' => $listing->slug, 'id' => $listing->id]) }}"
                                 style="width: 100%; margin-top: 1rem;"
-                                onclick="return confirm('Are you sure you want to delete this listing')">
-                                <button type="button" class="btn cur-p btn-outline-success" style="width: 100%">Gallery</button>
+                                onclick="return confirm('Did you save your updates?')">
+                                <button type="button" class="btn cur-p btn-outline-success" style="width: 100%">Photos</button>
                             </a>
                         </div>
                         <div class="form-group" style="display: flex; margin-top: 1rem; flex-direction:column">
