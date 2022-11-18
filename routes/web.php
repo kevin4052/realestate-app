@@ -46,6 +46,12 @@ Route::group([
 
 });
 
+// public group
+// Route::group([
+//     'prefix' => 'public',
+//     'as' => 'public.',
+// ], function () {});
+
 Route::get('/', function () {
     return view('pages.home');
 });
@@ -61,14 +67,9 @@ Route::get('/account/show-status', function () {
 })->name('show-status');
 
 //single listing
-Route::get('/listing/{slug}/{id}', function () {
-    return view('pages.single-listing');
-});
-
+Route::get('/listing/{slug}/{id}', [\App\Http\Controllers\Front\ListingController::class, 'show'])->name('listings.show');
 //show all listings
-Route::get('/{property_type}/{listing_type}/{city}', function () {
-    return view('pages.listings');
-})->name('listings');
+Route::get('/{property_type}/{listing_type?}/{state?}/{city?}/{zipcode?}', [\App\Http\Controllers\Front\ListingController::class, 'index'])->name('listings.index');
 
 require __DIR__.'/auth.php';
 

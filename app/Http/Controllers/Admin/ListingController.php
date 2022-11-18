@@ -93,8 +93,7 @@ class ListingController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function edit($slug, $id)
-    {
-        
+    {        
         $listing = Listing::where([
             'id' => $id,
             'slug' => $slug

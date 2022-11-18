@@ -4,7 +4,17 @@
 @section('content')
 <div id="maincontent">
     <div class="row">
-        <h1>show all listings</h1>
+        <div class="col-md-10">
+            <h1>show all listings</h1>
+        </div>
+        <div class="col-md-2">
+            <a href="{{route('admin.listings.create')}}">
+                <button type="button" class="btn cur-p btn-secondary" style="width: 100%">Add New Listing</button>
+            </a>
+        </div>
+    </div>
+    <div class="row">
+        
         <div class="col-md-12">
             <div class="bgc-white bd bdrs-3 p-20 mB-20">
                 <table class="table table-bordered">

@@ -22,27 +22,35 @@
     <div class="listings-properties">
         <div class="container">
             <div class="row">
-                @for ($i = 0; $i < 10; $i++)
-                <div class="col-md-6 col-lg-4 col-xl-3">
-                    <a class="listings-properties__item" href="/listing/123-Street-Miami-FL-12345/1">
-                        <img class="" src="https://image.cnbcfm.com/api/v1/image/105722431-1549456372715indian2.jpg?v=1549456442" alt="listing image">
-                        <div class="listings-properties__item-saved">
-                            <i class="fa-solid fa-heart"></i>
-                        </div>
-                        <div class="listings-properties__item-info">
-                            <span class="listings-properties__item-price">$250,000</span>
-                            <span class="listings-properties__item-details">
-                                <i class="fa-solid fa-bed"></i> 4 
-                                <i class="fa-solid fa-bath"></i> 4 
-                                <i class="fa-solid fa-ruler"></i> 4,000 SQFT
-                            </span>
-                            <span class="listings-properties__item-address">123 Street, <br/> Miami, FL 12345</span>
-                            <div class="listings-properties__item-line"></div>
-                            <span class="listings-properties__item-owner">Kevin Hernandez</span>
-                        </div>
-                    </a>        
-                </div>
-                @endfor
+                @foreach ($listings as $listing)
+                    <div class="col-md-6 col-lg-4 col-xl-3">
+                        <a class="listings-properties__item" href="/listing/123-Street-Miami-FL-12345/1">
+                            {{-- @foreach ($listing->photos as $photo)
+                                @if ($photo->featured)
+                                    <img class="listing-top__img" src="/img/{{$photo->name}}" alt="listing image">
+                                @endif
+                            @endforeach --}}
+                            <img class="" src="https://image.cnbcfm.com/api/v1/image/105722431-1549456372715indian2.jpg?v=1549456442" alt="listing image">
+                            <div class="listings-properties__item-saved">
+                                <i class="fa-solid fa-heart"></i>
+                            </div>
+                            <div class="listings-properties__item-info">
+                                <span class="listings-properties__item-price">$250,000</span>
+                                <span class="listings-properties__item-details">
+                                    <i class="fa-solid fa-bed"></i> {{$listing->bedrooms}} 
+                                    <i class="fa-solid fa-bath"></i> {{$listing->bathrooms}} 
+                                    <i class="fa-solid fa-ruler"></i> {{$listing->squarefootage}} SQFT
+                                </span>
+                                <span class="listings-properties__item-address">
+                                    {{$listing->address}} {{$listing->address2}}</br> 
+                                    {{$listing->city}}, {{$listing->state}} {{$listing->zipcode}}
+                                </span>
+                                <div class="listings-properties__item-line"></div>
+                                <span class="listings-properties__item-owner">{{$listing->user->name}}</span>
+                            </div>
+                        </a>        
+                    </div>
+                @endforeach
             </div>
         </div>
     </div>
