@@ -69,7 +69,7 @@ Route::get('/account/show-status', function () {
 //single listing
 Route::get('/listing/{slug}/{id}', [\App\Http\Controllers\Front\ListingController::class, 'show'])->name('listings.show');
 //show all listings
-Route::get('/{property_type}/{listing_type?}/{state?}/{city?}/{zipcode?}', [\App\Http\Controllers\Front\ListingController::class, 'index'])->name('listings.index');
+Route::get('/realestate/{property_type}/{listing_type?}/{state?}/{city?}/{zipcode?}', [\App\Http\Controllers\Front\ListingController::class, 'index'])->name('listings.index');
 
 require __DIR__.'/auth.php';
 

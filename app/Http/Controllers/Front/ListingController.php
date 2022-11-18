@@ -38,19 +38,20 @@ class ListingController extends Controller
         ];
 
         // $listings = Listing::where($filters);
-        $listings = DB::table('listings')->where(function($query) use($filters){
-            foreach($filters as $column => $value) {
-                if (!is_null($value)) {
-                    $query->where($column, $value);
+        $listings = DB::table('listings')
+            ->where(function($query) use($filters){
+                foreach($filters as $column => $value) {
+                    if (!is_null($value)) {
+                        $query->where($column, $value);
+                    }
                 }
-            }
-        })
-        ->where("status", "published")
-        ->whereBetween("bedrooms", [$min_beds, $max_beds])
-        ->whereBetween("bathrooms", [$min_baths, $max_baths])
-        ->whereBetween("squarefootage", [$min_sqft, $max_sqft])
-        // ->whereBetween("price", [$min_price, $max_price])
-        ->get();
+            })
+            ->where("status", "published")
+            ->whereBetween("bedrooms", [$min_beds, $max_beds])
+            ->whereBetween("bathrooms", [$min_baths, $max_baths])
+            ->whereBetween("squarefootage", [$min_sqft, $max_sqft])
+            // ->whereBetween("price", [$min_price, $max_price])
+            ->get();
 
         return $listings;
 

@@ -47,6 +47,8 @@ class ListingController extends Controller
         $this->authorize('create', Listing::class);
 
         request()->validate([
+            'property_type' => 'required',
+            'listing_type' => 'required',
             'address' => 'required',
             'address2' => 'required',
             'city' => 'required',
@@ -54,10 +56,14 @@ class ListingController extends Controller
             'bedrooms' => 'required|integer',
             'bathrooms' => 'required|integer',
             'squarefootage' => 'required|integer',
+            'price' => 'required|integer',
         ]);
 
         $listing = new Listing;
         $listing->user_id = auth()->user()->id;
+        $listing->property_type = $request->get('property_type');
+        $listing->listing_type = $request->get('listing_type');
+        $listing->price = $request->get('price');
         $listing->address = $request->get('address');
         $listing->address2 = $request->get('address2');
         $listing->city = $request->get('city');
@@ -67,7 +73,8 @@ class ListingController extends Controller
         $listing->bathrooms = $request->get('bathrooms');
         $listing->squarefootage = $request->get('squarefootage');
         $listing->description = $request->get('description');
-        $listing->status = 'draft';
+        $listing->isPublished = '0';
+        $listing->status = 'on_market';
         $listing->slug = Helper::slugify("{$request->address}-{$request->address2}-{$request->city}-{$request->state}"); 
         $listing->save();
 
@@ -115,6 +122,8 @@ class ListingController extends Controller
     public function update(Request $request, $slug, $id)
     {
         request()->validate([
+            'property_type' => 'required',
+            'listing_type' => 'required',
             'address' => 'required',
             'address2' => 'required',
             'city' => 'required',
@@ -122,6 +131,7 @@ class ListingController extends Controller
             'bedrooms' => 'required|integer',
             'bathrooms' => 'required|integer',
             'squarefootage' => 'required|integer',
+            'price' => 'required|integer',
         ]);
 
         $listing = Listing::where([
@@ -131,6 +141,9 @@ class ListingController extends Controller
 
         $this->authorize('update', $listing);
 
+        $listing->property_type = $request->get('property_type');
+        $listing->listing_type = $request->get('listing_type');
+        $listing->price = $request->get('price');
         $listing->address = $request->get('address');
         $listing->address2 = $request->get('address2');
         $listing->city = $request->get('city');
@@ -140,7 +153,8 @@ class ListingController extends Controller
         $listing->bathrooms = $request->get('bathrooms');
         $listing->squarefootage = $request->get('squarefootage');
         $listing->description = $request->get('description');
-        $listing->status = $request->get('status');
+        $listing->isPublished = $request->get('isPublished');
+        $listing->status = 'on_market';
         $listing->slug = Helper::slugify("{$request->address}-{$request->address2}-{$request->city}-{$request->state}"); 
         $listing->save();
 

@@ -11,7 +11,42 @@
                 <div class="bgc-white p-20 bd">
                     <h1 class="c-grey-900">Edit Listing</h1>
                     <div class="mT-30"> 
-                        <h3>Address</h3>
+                        {{-- <h3>Address</h3> --}}
+                        <div class="mb-3 col-md-4">
+                            <label class="form-label" for="listing_type">Listing Type</label> 
+                            <select id="listing_type" class="form-control" name="listing_type">
+                                <option value="sale" @selected(old('listing_type', $listing->listing_type) == 'sale') >Sale</option>
+                                <option value="rent" @selected(old('listing_type', $listing->listing_type) == 'rent') >Rent</option>
+                            </select>
+                            @error('listing_type')
+                                <div class="error-sub-text">
+                                    {{$message}}
+                                </div>
+                            @enderror
+                        </div>
+                        <div class="mb-3 col-md-4">
+                            <label class="form-label" for="property_type">Property Type</label> 
+                            <select id="property_type" class="form-control" name="property_type">
+                                <option value="home" @selected(old('property_type', $listing->property_type) == 'home') >Home</option>
+                                <option value="appartment" @selected(old('property_type', $listing->property_type) == 'appartment') >Appartment</option>
+                                <option value="condo" @selected(old('property_type', $listing->property_type) == 'condo') >Condo</option>
+                                <option value="townhouse" @selected(old('property_type', $listing->property_type) == 'townhouse') >Town House</option>
+                            </select>
+                            @error('property_type')
+                                <div class="error-sub-text">
+                                    {{$message}}
+                                </div>
+                            @enderror
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label" for="price">Price USD</label> 
+                            <input type="number" class="form-control" id="price" name="price" min="1" placeholder="ex: 100000" value="{{old('price', $listing->price)}}">
+                            @error('price')
+                                <div class="error-sub-text">
+                                    {{$message}}
+                                </div>
+                            @enderror
+                        </div>
                         <div class="mb-3">
                             <label class="form-label" for="address">Address</label>
                             <input type="text" class="form-control" id="address" name="address"
@@ -123,12 +158,12 @@
                     <h3 class="c-grey-900">Settings</h3>
                     <div class="mT-30">
                         <div class="form-group">
-                            <label class="form-label" for="status">Status</label>
-                            <select id="status" class="form-control" name="status">
-                                <option value="draft" @selected(old('status', $listing->status) == 'draft') >Draft</option>
-                                <option value="published" @selected(old('status', $listing->status) == 'published') >published</option>
+                            <label class="form-label" for="isPublished">Published</label>
+                            <select id="isPublished" class="form-control" name="isPublished">
+                                <option value="0" @selected(old('isPublished', $listing->isPublished) == '0') >Draft</option>
+                                <option value="1" @selected(old('isPublished', $listing->isPublished) == '1') >published</option>
                             </select>
-                            @error('status')
+                            @error('isPublished')
                             <div class="error-sub-text">
                                 {{$message}}
                             </div>

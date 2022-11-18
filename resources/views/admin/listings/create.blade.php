@@ -10,6 +10,41 @@
                 <form  method="POST" action="{{ route('admin.listings.store') }}">  
                     @csrf
 
+                    <div class="mb-3 col-md-4">
+                        <label class="form-label" for="listing_type">Listing Type</label> 
+                        <select id="listing_type" class="form-control" name="listing_type">
+                            <option value="sale" @selected(old('listing_type') == 'sale') >Sale</option>
+                            <option value="rent" @selected(old('listing_type') == 'rent') >Rent</option>
+                        </select>
+                        @error('listing_type')
+                            <div class="error-sub-text">
+                                {{$message}}
+                            </div>
+                        @enderror
+                    </div>
+                    <div class="mb-3 col-md-4">
+                        <label class="form-label" for="property_type">Property Type</label> 
+                        <select id="property_type" class="form-control" name="property_type">
+                            <option value="home" @selected(old('property_type') == 'home') >Home</option>
+                            <option value="appartment" @selected(old('property_type') == 'appartment') >Appartment</option>
+                            <option value="condo" @selected(old('property_type') == 'condo') >Condo</option>
+                            <option value="townhouse" @selected(old('property_type') == 'townhouse') >Town House</option>
+                        </select>
+                        @error('property_type')
+                            <div class="error-sub-text">
+                                {{$message}}
+                            </div>
+                        @enderror
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label" for="price">Price USD</label> 
+                        <input type="number" class="form-control" id="price" name="price" min="1" placeholder="ex: 100000" value="{{old('price')}}">
+                        @error('price')
+                            <div class="error-sub-text">
+                                {{$message}}
+                            </div>
+                        @enderror
+                    </div>
                     <div class="mb-3">
                         <label class="form-label" for="address">Address</label> 
                         <input type="text" class="form-control" id="address" name="address" placeholder="ex: 1234 Main St" value="{{old('address')}}">
