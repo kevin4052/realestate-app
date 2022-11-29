@@ -11,7 +11,21 @@
     </div>
     <div class="listings-filter">
         <div class="listings-filter__wrapper">
-            <div class="listings-filter__option">Any Price <i class="fa-solid fa-chevron-down"></i></div>
+            <div class="listings-filter__option">
+                <label class="form-label" for="inputState">State</label> 
+                <select id="inputState" class="form-control">
+                    <option selected="selected">Choose...</option>
+                    <option>...</option>
+                </select>
+            </div>
+            {{-- <div class="listings-filter__option"> 
+                <label class="form-label" for="isPublished">Any Price <i class="fa-solid fa-chevron-down"></i></label>
+                <select name="" id="">
+                    <option value="">Any Price</option>
+                    <option value="">1</option>
+                    <option value="">2</option>
+                </select> 
+            </div> --}}
             <div class="listings-filter__option">All Beds <i class="fa-solid fa-chevron-down"></i></div>
             <div class="listings-filter__option">Home Type <i class="fa-solid fa-chevron-down"></i></div>
             <div class="listings-filter__option">More <i class="fa-solid fa-chevron-down"></i></div>
@@ -24,18 +38,17 @@
             <div class="row">
                 @foreach ($listings as $listing)
                     <div class="col-md-6 col-lg-4 col-xl-3">
-                        <a class="listings-properties__item" href="/listing/123-Street-Miami-FL-12345/1">
-                            {{-- @foreach ($listing->photos as $photo)
+                        <a class="listings-properties__item" href="/listing/{{$listing->slug}}/{{$listing->id}}">
+                            @foreach ($listing->photos as $photo)
                                 @if ($photo->featured)
-                                    <img class="listing-top__img" src="/img/{{$photo->name}}" alt="listing image">
+                                    <img src="/img/{{$photo->name}}" alt="listing image">
                                 @endif
-                            @endforeach --}}
-                            <img class="" src="https://image.cnbcfm.com/api/v1/image/105722431-1549456372715indian2.jpg?v=1549456442" alt="listing image">
+                            @endforeach
                             <div class="listings-properties__item-saved">
                                 <i class="fa-solid fa-heart"></i>
                             </div>
                             <div class="listings-properties__item-info">
-                                <span class="listings-properties__item-price">$250,000</span>
+                                <span class="listings-properties__item-price">${{$listing->price}} </span>
                                 <span class="listings-properties__item-details">
                                     <i class="fa-solid fa-bed"></i> {{$listing->bedrooms}} 
                                     <i class="fa-solid fa-bath"></i> {{$listing->bathrooms}} 

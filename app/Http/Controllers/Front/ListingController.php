@@ -22,38 +22,35 @@ class ListingController extends Controller
         $max_beds = (is_null($request->input('max_beds'))) ? 100 : $request->input('max_beds');        
         $min_baths = (is_null($request->input('min_baths'))) ? 0 : $request->input('min_baths');
         $max_baths = (is_null($request->input('max_baths'))) ? 100 : $request->input('max_baths');        
-        // $min_price = (is_null($request->input('min_price'))) ? 0 : $request->input('min_price');
-        // $max_price = (is_null($request->input('max_price'))) ? 1000000000 : $request->input('max_price');        
+        $min_price = (is_null($request->input('min_price'))) ? 0 : $request->input('min_price');
+        $max_price = (is_null($request->input('max_price'))) ? 1000000000 : $request->input('max_price');        
         $min_sqft = (is_null($request->input('min_sqft'))) ? 100 : $request->input('min_sqft');
         $max_sqft = (is_null($request->input('max_sqft'))) ? 10000000 : $request->input('max_sqft');
 
-
-
         $filters = [
-            // 'property_type' => $property_type,
-            // 'listing_type' => $listing_type,
+            'property_type' => $property_type,
+            'listing_type' => $listing_type,
             'state' => $state,
             'city' => $city,
             'zipcode' => $zipcode
         ];
 
-        // $listings = Listing::where($filters);
-        $listings = DB::table('listings')
-            ->where(function($query) use($filters){
+        $listings = Listing::where(function($query) use($filters){
                 foreach($filters as $column => $value) {
                     if (!is_null($value)) {
                         $query->where($column, $value);
                     }
                 }
             })
-            ->where("status", "published")
+            ->where("status", "on_market")
+            ->where("isPublished", 1)
             ->whereBetween("bedrooms", [$min_beds, $max_beds])
             ->whereBetween("bathrooms", [$min_baths, $max_baths])
             ->whereBetween("squarefootage", [$min_sqft, $max_sqft])
-            // ->whereBetween("price", [$min_price, $max_price])
+            ->whereBetween("price", [$min_price, $max_price])
             ->get();
 
-        return $listings;
+        // return $listings;
 
         return view('pages.listings', ['listings' => $listings]);
     }
@@ -90,8 +87,7 @@ class ListingController extends Controller
         $listing = Listing::where([
             'id' => $id,
             'slug' => $slug
-        ])->first();
-        
+        ])->first();        
         
         $photos = Photo::where([
             'listing_id' => $id

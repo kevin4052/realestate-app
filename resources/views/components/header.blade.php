@@ -3,7 +3,7 @@
         <a class="header__logo" href="/">Hernandez Realty</a>
 
         <div class="header__menu">
-            <a href="/home/for-sale/miami" class="header__menu-link @if(request()->routeIs('listings')) header__menu-link--active @endif">Listing</a>
+            <a href="/realestate/home/sale" class="header__menu-link @if(request()->routeIs('listings.index')) header__menu-link--active @endif">Listing</a>
             <a href="#" class="header__menu-link @if(request()->routeIs('property')) header__menu-link--active @endif">Property</a>
             <a href="#" class="header__menu-link @if(request()->routeIs('pages')) header__menu-link--active @endif">Pages</a>
         </div>

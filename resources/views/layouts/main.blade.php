@@ -14,6 +14,7 @@
             referrerpolicy="no-referrer"
         />
         @vite(['resources/css/styles.scss'])
+        <script defer="defer" src="/dash/main.js"></script>
     </head>
     <body>
         @include('components.header')

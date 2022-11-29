@@ -31,7 +31,7 @@
                         <div class="listing-top__form-option">2:00 PM</div>
                     </div>
 
-                    <label class="listing-top__form-label">Phone</label>
+                    <label class="listing-top__form-label">Phone</label>    
                     <div class="listing-top__form-group">
                         <div class="listing-top__form-option">Enter Phone</div>
                     </div>

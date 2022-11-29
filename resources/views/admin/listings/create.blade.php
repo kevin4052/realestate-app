@@ -87,7 +87,7 @@
                         </div>
                         <div class="mb-3 col-md-2">
                             <label class="form-label" for="zipcode">Zipcode</label> 
-                            <input type="text" class="form-control" id="zipcode" name="zipcode" placeholder="ex: 33333" value="{{old('zopcode')}}">
+                            <input type="text" class="form-control" id="zipcode" name="zipcode" placeholder="ex: 33333" value="{{old('zipcode')}}">
                             @error('zipcode')
                                 <div class="error-sub-text">
                                     {{$message}}

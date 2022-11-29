@@ -141,24 +141,31 @@ class ListingController extends Controller
 
         $this->authorize('update', $listing);
 
-        $listing->property_type = $request->get('property_type');
-        $listing->listing_type = $request->get('listing_type');
-        $listing->price = $request->get('price');
-        $listing->address = $request->get('address');
-        $listing->address2 = $request->get('address2');
-        $listing->city = $request->get('city');
-        $listing->state = $request->get('state');
-        $listing->zipcode = $request->get('zipcode');
-        $listing->bedrooms = $request->get('bedrooms');
-        $listing->bathrooms = $request->get('bathrooms');
-        $listing->squarefootage = $request->get('squarefootage');
-        $listing->description = $request->get('description');
-        $listing->isPublished = $request->get('isPublished');
-        $listing->status = 'on_market';
-        $listing->slug = Helper::slugify("{$request->address}-{$request->address2}-{$request->city}-{$request->state}"); 
-        $listing->save();
+        // return $request->get('isPublished');
 
-        session()->flash('success', 'Listing has been updated!');
+        if ($listing->photos->count() == 0 && $request->get('isPublished') == 1) {
+            session()->flash('error', 'Listing must have photos to be published');
+        } else {
+            $listing->property_type = $request->get('property_type');
+            $listing->listing_type = $request->get('listing_type');
+            $listing->price = $request->get('price');
+            $listing->address = $request->get('address');
+            $listing->address2 = $request->get('address2');
+            $listing->city = $request->get('city');
+            $listing->state = $request->get('state');
+            $listing->zipcode = $request->get('zipcode');
+            $listing->bedrooms = $request->get('bedrooms');
+            $listing->bathrooms = $request->get('bathrooms');
+            $listing->squarefootage = $request->get('squarefootage');
+            $listing->description = $request->get('description');
+            $listing->isPublished = $request->get('isPublished');
+            $listing->status = 'on_market';
+            $listing->slug = Helper::slugify("{$request->address}-{$request->address2}-{$request->city}-{$request->state}"); 
+            $listing->save();
+    
+            session()->flash('success', 'Listing has been updated!');
+        }
+
         return redirect("/admin/listings/{$listing->slug}/{$listing->id}/edit");
     }
 

@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Photo;
+use App\Models\Listing;
 use App\Helper\Helper;
 use Illuminate\Http\Request;
 
@@ -60,7 +61,9 @@ class PhotoController extends Controller
         request()->validate([
             'image' => 'required|file'
         ]);
-        
+
+        $listingPhotoCount = Listing::find($id)->photos->count();
+
         $newName = time() . '-' . $request->file('image')->getClientOriginalName();
         $size = $request->file('image')->getSize();
         $name = $newName;
@@ -71,7 +74,7 @@ class PhotoController extends Controller
         $photo->listing_id = $id;
         $photo->size = $size;
         $photo->name = $name;
-        $photo->featured = 0;
+        $photo->featured = $listingPhotoCount == 0;
         $photo->save();
 
         session()->flash('success', 'Photo was Saved!');
